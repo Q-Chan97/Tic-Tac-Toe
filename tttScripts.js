@@ -35,12 +35,13 @@ function gamePlayer (name, marker) { // Factory function for players
 };
 
 const gameController = (function () {
-    const gameboard = Gameboard.getBoard(); // Pulls board array
+    const board = Gameboard.getBoard(); // Pulls board array
 
     const playerOne = gamePlayer("Player One", "X");
 
     const playerTwo = gamePlayer("Player Two", "O");
 
-    console.log(playerOne.name); // Testing
-    console.log(playerTwo.marker);
+    let activePlayer = playerOne; // Player One starts first
+
+    
 })();
