@@ -44,4 +44,19 @@ const gameController = (function () {
     let activePlayer = playerOne; // Player One starts first
 
     let gameOver = false; // Game is not over by default
+
+    const resetGame = () => {
+        Gameboard.resetBoard(); // Clears board array
+        activePlayer = playerOne; // Default player set
+        gameOver = false; // Game is not over
+    }
+
+    return {
+        resetGame
+    }
+
 })();
+
+console.log(Gameboard.getBoard()); // Testing
+gameController.resetGame();
+console.log(Gameboard.getBoard());
