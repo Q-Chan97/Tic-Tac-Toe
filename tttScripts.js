@@ -14,10 +14,21 @@ const Gameboard = (function () {
         }
     };
 
+    const isEmpty = (index) => {   // Can check to see if an array index is empty or not
+        if (board[index] === "") {
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+
     return { 
-        getBoard, placeMarker, resetBoard
+        getBoard, placeMarker, resetBoard, isEmpty
     }
 
 })();
 
-console.log(Gameboard.getBoard);
+
+console.log(Gameboard.isEmpty([1]));
