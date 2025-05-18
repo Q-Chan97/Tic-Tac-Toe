@@ -34,6 +34,8 @@ function gamePlayer (name, marker) { // Factory function for players
     return { name, marker };
 };
 
-let chris = gamePlayer("Chris", "Z"); // Testing
+const gameController = (function () {
+    const gameboard = Gameboard.getBoard(); // Pulls board array
 
-console.log(`${chris.name}'s marker is ${chris.marker}.`)
+    console.log(gameboard); // Testing
+})();
