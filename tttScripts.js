@@ -1,5 +1,5 @@
 const Gameboard = (function () {
-    const board = ["x", "x", "x", "x", "o", "o", "o", "o", "o"]; // Filled with dummy markers
+    const board = ["", "", "", "", "", "", "", "", ""];
 
     const getBoard = () => board; // Gets board - leaves actual board array private
 
@@ -57,6 +57,3 @@ const gameController = (function () {
 
 })();
 
-console.log(Gameboard.getBoard()); // Testing
-gameController.resetGame();
-console.log(Gameboard.getBoard());
