@@ -43,5 +43,5 @@ const gameController = (function () {
 
     let activePlayer = playerOne; // Player One starts first
 
-    
+    let gameOver = false; // Game is not over by default
 })();
