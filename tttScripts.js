@@ -37,5 +37,10 @@ function gamePlayer (name, marker) { // Factory function for players
 const gameController = (function () {
     const gameboard = Gameboard.getBoard(); // Pulls board array
 
-    console.log(gameboard); // Testing
+    const playerOne = gamePlayer("Player One", "X");
+
+    const playerTwo = gamePlayer("Player Two", "O");
+
+    console.log(playerOne.name); // Testing
+    console.log(playerTwo.marker);
 })();
