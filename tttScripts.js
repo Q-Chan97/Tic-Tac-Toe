@@ -30,5 +30,10 @@ const Gameboard = (function () {
 
 })();
 
+function gamePlayer (name, marker) { // Factory function for players
+    return { name, marker };
+};
 
-console.log(Gameboard.isEmpty([1]));
+let chris = gamePlayer("Chris", "Z"); // Testing
+
+console.log(`${chris.name}'s marker is ${chris.marker}.`)
