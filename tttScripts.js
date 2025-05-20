@@ -51,6 +51,10 @@ const gameController = (function () {
         gameOver = false; // Game is not over
     }
 
+    const swapPlayer = () => {
+        activePlayer = activePlayer === playerOne ? playerTwo : playerOne;
+    }
+
     const checkWin = () => {
         const activeMarker = activePlayer.marker;
 
@@ -71,8 +75,7 @@ const gameController = (function () {
 
 
     return {
-        resetGame
+        resetGame,
     }
 
 })();
-
