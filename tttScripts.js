@@ -51,6 +51,25 @@ const gameController = (function () {
         gameOver = false; // Game is not over
     }
 
+    const checkWin = () => {
+        const activeMarker = activePlayer.marker;
+
+        return (
+            // Horizontal wins
+            (board[0] == activeMarker && board[1] == activeMarker && board[2] == activeMarker) ||
+            (board[3] == activeMarker && board[4] == activeMarker && board[5] == activeMarker) ||
+            (board[6] == activeMarker && board[7] == activeMarker && board[8] == activeMarker) ||
+            // Vertical wins
+            (board[0] == activeMarker && board[3] == activeMarker && board[6] == activeMarker) ||
+            (board[1] == activeMarker && board[4] == activeMarker && board[7] == activeMarker) ||
+            (board[2] == activeMarker && board[5] == activeMarker && board[8] == activeMarker) ||
+            // Diagonal wins
+            (board[0] == activeMarker && board[4] == activeMarker && board[8] == activeMarker) ||
+            (board[2] == activeMarker && board[4] == activeMarker && board[6] == activeMarker)
+        );
+    };
+
+
     return {
         resetGame
     }
