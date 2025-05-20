@@ -1,5 +1,5 @@
 const Gameboard = (function () {
-    const board = ["x", "x", "x", "x", "x", "x", "x", "x", "x"]; // Testing
+    const board = ["", "", "", "", "", "", "", "", ""];
 
     const getBoard = () => board; // Gets board - leaves actual board array private
 
@@ -24,8 +24,12 @@ const Gameboard = (function () {
         }
     }
 
+    const refreshBoard = () =>{ // This will console log board state
+        console.log(board)
+    };
+
     return { 
-        getBoard, placeMarker, resetBoard, isEmpty
+        getBoard, placeMarker, resetBoard, isEmpty, refreshBoard, board // Testing
     }
 
 })();
@@ -76,7 +80,7 @@ const gameController = (function () {
     const checkTie = () => board.every(index => index !== ""); // Returns true (tie game) if every index has a value
 
     return {
-        resetGame, checkTie, board // Testing
+        resetGame,
     }
 
 })();
