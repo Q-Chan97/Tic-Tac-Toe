@@ -29,7 +29,7 @@ const Gameboard = (function () {
     };
 
     return { 
-        getBoard, placeMarker, resetBoard, isEmpty, refreshBoard, board // Testing
+        getBoard, placeMarker, resetBoard, isEmpty, refreshBoard
     }
 
 })();
@@ -79,8 +79,31 @@ const gameController = (function () {
 
     const checkTie = () => board.every(index => index !== ""); // Returns true (tie game) if every index has a value
 
+    const playRound = () => {
+
+        Gameboard.placeMarker(index, activePlayer.marker);
+
+        if (checkWin()) {
+            gameOver = true;
+            Gameboard.refreshBoard();
+            return; // Stops playRound
+        }
+
+        if (checkTie()) {
+            gameOver = true;
+            Gameboard.refreshBoard();
+            return;
+        }
+
+        swapPlayer();
+        Gameboard.refreshBoard();
+    }
+
+    const getActivePlayer = () => gameController.activePlayer;
+    const getGameOver = () => gameController.gameOver;
+
     return {
-        resetGame,
+        resetGame, playRound, getActivePlayer, getGameOver
     }
 
 })();
