@@ -79,7 +79,10 @@ const gameController = (function () {
 
     const checkTie = () => board.every(index => index !== ""); // Returns true (tie game) if every index has a value
 
-    const playRound = () => {
+    const playRound = (index) => {
+        if (gameOver) {
+            return; // Stops playRound
+        }
 
         Gameboard.placeMarker(index, activePlayer.marker);
 
@@ -92,15 +95,17 @@ const gameController = (function () {
         if (checkTie()) {
             gameOver = true;
             Gameboard.refreshBoard();
-            return;
+            return; // Stops playRound
         }
 
-        swapPlayer();
-        Gameboard.refreshBoard();
+        else {
+            swapPlayer();
+            Gameboard.refreshBoard();
+        }
     }
 
-    const getActivePlayer = () => gameController.activePlayer;
-    const getGameOver = () => gameController.gameOver;
+    const getActivePlayer = () => activePlayer;
+    const getGameOver = () => gameOver;
 
     return {
         resetGame, playRound, getActivePlayer, getGameOver
