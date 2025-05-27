@@ -1,0 +1,29 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eae9e9;
+}
+
+#page-container {
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid green; /* guidelines */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+}
+
+#head-div {
+    border: 1px solid magenta; /* guidelines */
+}
+
+#body-div {
+    border: 1px solid orange; /* guidelines */
+}
