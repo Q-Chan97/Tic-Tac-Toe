@@ -34,16 +34,16 @@ const Gameboard = (function () {
 
 })();
 
-function gamePlayer (name, marker) { // Factory function for players
-    return { name, marker };
+function gamePlayer (name, marker, score) { // Factory function for players
+    return { name, marker, score };
 };
 
 const gameController = (function () {
     const board = Gameboard.getBoard(); // Pulls board array
 
-    const playerOne = gamePlayer("Player One", "X");
+    const playerOne = gamePlayer("Player One", "X", 0);
 
-    const playerTwo = gamePlayer("Player Two", "O");
+    const playerTwo = gamePlayer("Player Two", "O", 0);
 
     let activePlayer = playerOne; // Player One starts first
 
