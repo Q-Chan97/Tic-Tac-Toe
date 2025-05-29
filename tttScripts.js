@@ -118,10 +118,8 @@ const screenController = (function () {
     const announceDiv = document.getElementById("player-announce-div");
 
     const screenUpdate = () => {
-        announceDiv.textContent = `${activePlayer.name} it's your turn!`
+        announceDiv.textContent = `${activePlayer.name}, it's your turn!`
     }
 
-    return {
-        screenUpdate
-    }
+    screenUpdate();
 })();
