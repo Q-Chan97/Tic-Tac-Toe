@@ -112,3 +112,16 @@ const gameController = (function () {
     }
 
 })();
+
+const screenController = (function () {
+    const activePlayer = gameController.getActivePlayer();
+    const announceDiv = document.getElementById("player-announce-div");
+
+    const screenUpdate = () => {
+        announceDiv.textContent = `${activePlayer.name} it's your turn!`
+    }
+
+    return {
+        screenUpdate
+    }
+})();
