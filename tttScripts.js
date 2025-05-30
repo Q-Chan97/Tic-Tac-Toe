@@ -106,9 +106,11 @@ const gameController = (function () {
 
     const getActivePlayer = () => activePlayer;
     const getGameOver = () => gameOver;
+    const getPlayerOne = () => playerOne;
+    const getPlayerTwo = () => playerTwo;
 
     return {
-        resetGame, playRound, getActivePlayer, getGameOver
+        resetGame, playRound, getActivePlayer, getGameOver, getPlayerOne, getPlayerTwo
     }
 
 })();
@@ -117,8 +119,16 @@ const screenController = (function () {
     const activePlayer = gameController.getActivePlayer();
     const announceDiv = document.getElementById("player-announce-div");
 
+    const playerOneDiv = document.getElementById("player-one-info");
+    const playerTwoDiv = document.getElementById("player-two-info");
+    const playerOne = gameController.getPlayerOne();
+    const playerTwo = gameController.getPlayerTwo();
+
     const screenUpdate = () => {
         announceDiv.textContent = `${activePlayer.name}, it's your turn!`
+
+        playerOneDiv.textContent = `Player One: ${playerOne.score}`
+        playerTwoDiv.textContent = `Player Two: ${playerTwo.score}`
     }
 
     screenUpdate();
