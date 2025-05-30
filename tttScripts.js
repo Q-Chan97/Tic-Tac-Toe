@@ -124,11 +124,20 @@ const screenController = (function () {
     const playerOne = gameController.getPlayerOne();
     const playerTwo = gameController.getPlayerTwo();
 
+    const board = Gameboard.getBoard();
+    const boardDiv = document.getElementById("board-container");
+
     const screenUpdate = () => {
         announceDiv.textContent = `${activePlayer.name}, it's your turn!`
 
         playerOneDiv.textContent = `Player One: ${playerOne.score}`
         playerTwoDiv.textContent = `Player Two: ${playerTwo.score}`
+
+        board.forEach(() => {
+            const boardCell = document.createElement("button");
+
+            boardDiv.appendChild(boardCell);
+        })
     }
 
     screenUpdate();
