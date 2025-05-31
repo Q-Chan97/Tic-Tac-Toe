@@ -100,7 +100,7 @@ const gameController = (function () {
 
         else {
             swapPlayer();
-            Gameboard.refreshBoard();
+            screenController.boardDisplay();
         }
     }
 
@@ -124,7 +124,7 @@ const screenController = (function () {
     const playerOne = gameController.getPlayerOne();
     const playerTwo = gameController.getPlayerTwo();
 
-    const board = Gameboard.getBoard();
+    const cells = document.querySelectorAll(".cell");
 
     const screenUpdate = () => {
         announceDiv.textContent = `${activePlayer.name}, it's your turn!`
@@ -133,5 +133,26 @@ const screenController = (function () {
         playerTwoDiv.textContent = `Player Two: ${playerTwo.score}`
     }
 
+    const boardDisplay = () => {
+        const board = Gameboard.getBoard(); // Board array
+
+        cells.forEach((cell, index) => {
+            cell.textContent = board[index];
+        })
+    }
+
+    const cellClick = (event) => {
+        const index = event.target.dataset.index
+        if (Gameboard.getBoard()[index] === "") {
+            gameController.playRound(index);
+        }
+    }
+
     screenUpdate();
+
+    cells.forEach(cell => cell.addEventListener("click", cellClick));
+
+    return {
+        boardDisplay
+    }
 })();
