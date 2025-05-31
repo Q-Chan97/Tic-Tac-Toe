@@ -89,12 +89,16 @@ const gameController = (function () {
         if (checkWin()) {
             gameOver = true;
             Gameboard.refreshBoard();
+            activePlayer.score++;
+            console.log("round over")
+            screenController.screenUpdate();
             return; // Stops playRound
         }
 
         if (checkTie()) {
             gameOver = true;
             Gameboard.refreshBoard();
+            console.log("tie game");
             return; // Stops playRound
         }
 
@@ -153,6 +157,6 @@ const screenController = (function () {
     cells.forEach(cell => cell.addEventListener("click", cellClick));
 
     return {
-        boardDisplay
+        boardDisplay, screenUpdate
     }
 })();
