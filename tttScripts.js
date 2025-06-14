@@ -57,6 +57,7 @@ const gameController = (function () {
 
     const swapPlayer = () => {
         activePlayer = activePlayer === playerOne ? playerTwo : playerOne;
+        console.log(activePlayer)
     }
 
     const checkWin = () => {
@@ -92,6 +93,7 @@ const gameController = (function () {
             activePlayer.score++;
             console.log("round over")
             screenController.screenUpdate();
+            screenController.updateMessage(`${activePlayer.name} is the winner!`)
             return; // Stops playRound
         }
 
@@ -99,11 +101,13 @@ const gameController = (function () {
             gameOver = true;
             Gameboard.refreshBoard();
             console.log("tie game");
+            screenController.updateMessage("Tie game. Go again!")
             return; // Stops playRound
         }
 
         else {
             swapPlayer();
+            screenController.updateMessage(`${activePlayer.name}, it's your turn!`)
             screenController.boardDisplay();
         }
     }
@@ -152,11 +156,15 @@ const screenController = (function () {
         }
     }
 
+    const updateMessage = (message) => {
+        announceDiv.textContent = message
+    }
+
     screenUpdate();
 
     cells.forEach(cell => cell.addEventListener("click", cellClick));
 
     return {
-        boardDisplay, screenUpdate
+        boardDisplay, screenUpdate, updateMessage
     }
 })();
