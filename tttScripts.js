@@ -134,6 +134,8 @@ const screenController = (function () {
 
     const cells = document.querySelectorAll(".cell");
 
+    const newGameBtn = document.getElementById("new-game-button");
+
     const screenUpdate = () => {
         announceDiv.textContent = `${activePlayer.name}, it's your turn!`
 
@@ -160,11 +162,20 @@ const screenController = (function () {
         announceDiv.textContent = message
     }
 
+    const restartGame = () => {
+        Gameboard.resetBoard();
+        boardDisplay();
+        gameController.resetGame();
+        updateMessage(`New game, go ${activePlayer.name}!`)
+    }
+
     screenUpdate();
 
     cells.forEach(cell => cell.addEventListener("click", cellClick));
 
+    newGameBtn.addEventListener("click", restartGame);
+
     return {
-        boardDisplay, screenUpdate, updateMessage
+        boardDisplay, screenUpdate, updateMessage, 
     }
 })();
