@@ -122,16 +122,7 @@ body {
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-}
-
-.player-one-marker {
-    color: rgb(24, 72, 248);
-    font-size: 7rem;
-    font-weight: 400;
-}
-
-.player-two-marker {
-    color: rgb(190, 21, 21);
+    color: black;
     font-size: 7rem;
     font-weight: 400;
 }
